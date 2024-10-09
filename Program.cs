@@ -1,12 +1,12 @@
-﻿int sekil = 0;
-double pi = 3.14;
+int sekil = 0;
 int alan = 0;
+double pi = 3.14;
 int kisaYadaTaban = 0;
 int uzunYadaYukseklik = 0;
 
 programBilgi();
 sekilSec();
-hesapla();
+ekranaYaz(alanHesapla(sekil), cevreHesapla(sekil));
 
 void mesaj(string mesaj, ConsoleColor onrek = ConsoleColor.Gray)
 {
@@ -24,11 +24,6 @@ void sekilSec()
 {
     Console.Write("Lütfen İşlem için bir şekil seçin: (1 - Dikdörtgen, 2 - Daire, 3 - Kare, 4 - Üçgen) => ");
     sekil = Convert.ToInt32(Console.ReadLine());
-}
-
-void hesapla()
-{
-    ekranaYaz(alanHesapla(sekil), cevreHesapla(sekil));
 }
 
 int sGir(int sayi = 0, string metin = "")
@@ -53,8 +48,11 @@ double alanHesapla(int sekil)
         case 2: alan = sGir(); return pi * alan * alan; break;
         case 3: alan = sGir(); return alan * alan; break;
 
-        case 4: kisaYadaTaban = sGir(); uzunYadaYukseklik = sGir();
-        return kisaYadaTaban * uzunYadaYukseklik / 2; break;
+        case 4:
+        kisaYadaTaban = sGir();
+        uzunYadaYukseklik = sGir();
+        return kisaYadaTaban * uzunYadaYukseklik / 2; 
+        break;
 
         default: return 0; break;
     }
